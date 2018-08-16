@@ -35,5 +35,5 @@ func wsHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 
 	http.HandleFunc("/ws", wsHandler)
-	http.ListenAndServe("0.0.0.0:7778", nil)
+	http.ListenAndServe("0.0.0.0:7777", nil)
 }

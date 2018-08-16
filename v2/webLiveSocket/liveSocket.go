@@ -23,25 +23,6 @@ func InitMySocket(conn *websocket.Conn) (sk *WebLiveSocket) {
 	return
 }
 
-/*func (c *WebLiveSocket) ReadMessage() (data []byte, err error) {
-	select {
-	case data = <-c.inChan:
-	case <-c.closeChan:
-		err = errors.New("connection is close")
-	}
-	return
-}
-
-func (c *WebLiveSocket) SendMessage(data []byte) (err error) {
-	select {
-	case c. <-data:
-		fmt.Println("data enter outchan")
-	case <-c.closeChan:
-		err = errors.New("connection is closed")
-	}
-	return
-}*/
-
 func (c *WebLiveSocket) close() (err error) {
 	if err = c.longCon.Close(); err != nil {
 		return
