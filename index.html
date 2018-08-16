@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
     <script type="text/javascript">
-        var wsUri ="ws://127.0.0.1:12223/ws";
+        var wsUri ="ws://127.0.0.1:7778/ws";
         var output;
 
         function init() {
@@ -31,9 +31,7 @@
 
         function onOpen(evt) {
             writeToScreen("CONNECTED");
-            // doSend("WebSocket rocks");
         }
-
         function onClose(evt) {
             writeToScreen("DISCONNECTED");
         }
@@ -62,8 +60,10 @@
         window.addEventListener("load", init, false);
         function sendBtnClick(){
             var msg = document.getElementById("input").value;
-            doSend(msg);
-            document.getElementById("input").value = '';
+            if(msg != ""){
+                doSend(msg);
+                document.getElementById("input").value = '';
+            }
         }
         function closeBtnClick(){
             websocket.close();
