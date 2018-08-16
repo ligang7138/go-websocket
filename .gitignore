@@ -1,2 +1,6 @@
 ###< goland idea ###
 /.idea
+
+###< vendor 下的文件 ###
+/vendor/*
+!/vendor/vendor.json
