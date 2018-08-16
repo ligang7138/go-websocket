@@ -4,6 +4,7 @@ import (
 	"github.com/gorilla/websocket"
 	"go-websocket/v1/impl"
 	"net/http"
+	"time"
 )
 
 var (
@@ -34,15 +35,17 @@ func wsHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// 启动线程，不断发消息
-	/*go func(){
-		var (err error)
-		for{
-			if err = conn.WriteMessage([]byte("heartbeat"));err != nil{
+	go func() {
+		var (
+			err error
+		)
+		for {
+			if err = conn.WriteMessage([]byte("heartbeat")); err != nil {
 				return
 			}
-			time.Sleep(1*time.Second)
+			time.Sleep(1 * time.Second)
 		}
-	}()*/
+	}()
 
 	for {
 		if data, err = conn.ReadMessage(); err != nil {
