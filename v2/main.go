@@ -25,6 +25,7 @@ func wsHandler(w http.ResponseWriter, r *http.Request) {
 	)
 	if conn, err = upgrader.Upgrade(w, r, nil); err != nil {
 		fmt.Println("升级websocket协议失败")
+		conn.Close()
 		return
 	}
 	ms = webLiveSocket.InitMySocket(conn)
